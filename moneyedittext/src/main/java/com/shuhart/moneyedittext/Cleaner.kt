@@ -5,8 +5,6 @@ interface Cleaner {
 }
 
 class CleanerImpl : Cleaner {
-
-    private val allowedNumbers = "01234567890"
     override fun clean(text: String, selection: Int): Pair<String, Int> {
         if (text.isEmpty()) return Pair("", 0)
 
@@ -20,7 +18,7 @@ class CleanerImpl : Cleaner {
             if (c.toString() == "." && !separatorAlreadyAdded) {
                 sb.append(c.toString())
                 separatorAlreadyAdded = true
-            } else if (allowedNumbers.contains(c.toString())) {
+            } else if (c.isDigit()) {
                 sb.append(c.toString())
             } else if (index >= reversedSelection) {
                 reversedSelection++
@@ -30,6 +28,5 @@ class CleanerImpl : Cleaner {
         val realSelection = text.length - reversedSelection
         return Pair(sb.reverse().toString(), realSelection)
     }
-
 }
 
