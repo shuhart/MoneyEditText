@@ -1,8 +1,6 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 
-def kotlinVer = "1.1.51"
-
 repositories {
     maven { url "https://maven.google.com" }
 }
@@ -34,6 +32,6 @@ dependencies {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
     compile 'com.android.support:appcompat-v7:26.0.1'
-    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlinVer"
+    compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     testCompile 'junit:junit:4.12'
 }

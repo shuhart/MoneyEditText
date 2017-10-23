@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">MoneyEditText</string>
+    <string name="choose_a_locale">Choose a locale</string>
 </resources>

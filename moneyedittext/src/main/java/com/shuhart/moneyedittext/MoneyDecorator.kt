@@ -17,7 +17,9 @@ interface MoneyDecorator {
 }
 
 open class DefaultMoneyDecorator(override var currency: String) : MoneyDecorator {
-    private val decimalFormatSymbols = DecimalFormatSymbols(Locale.getDefault())
+    private val cache = mutableMapOf<Locale, DecimalFormatSymbols>(
+            Locale.getDefault() to DecimalFormatSymbols(Locale.getDefault())
+    )
 
     open var selection: Int = 0
 
@@ -97,7 +99,23 @@ open class DefaultMoneyDecorator(override var currency: String) : MoneyDecorator
         }
     }
 
-    override fun getDecimalFormatSymbol(): String = decimalFormatSymbols.decimalSeparator.toString()
+    override fun getDecimalFormatSymbol(): String {
+        val dfs = getDecimalFormatSymbols()
+        return dfs.decimalSeparator.toString()
+    }
 
-    override fun getThousandFormatSymbol(): String = decimalFormatSymbols.groupingSeparator.toString()
+    private fun getDecimalFormatSymbols(): DecimalFormatSymbols {
+        val locale = Locale.getDefault()
+        var dfs = cache[locale]
+        if (dfs == null) {
+            dfs = DecimalFormatSymbols(locale)
+            cache.put(locale, dfs)
+        }
+        return dfs
+    }
+
+    override fun getThousandFormatSymbol(): String {
+        val dfs = getDecimalFormatSymbols()
+        return dfs.groupingSeparator.toString()
+    }
 }

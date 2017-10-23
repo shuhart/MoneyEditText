@@ -21,7 +21,7 @@ abstract class LocaleMoneyEditText : EditText {
             maxDecimalNumbers = 2,
             maxIntegerNumbers = 10)
 
-    private val cleaner = CleanerImpl()
+    protected val cleaner = CleanerImpl()
     private val getAmountController = GetAmountController()
     private val deleteController = DeleteController()
     private val mainWatcher = MoneyTextWatcher()
