@@ -1,1 +1,1 @@
-include ':sample', ':moneyedittext'
+include ':sample', ':moneyedittext-kotlin'

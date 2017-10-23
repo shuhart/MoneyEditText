@@ -1,6 +1,12 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 
+repositories {
+    maven {
+        url 'https://dl.bintray.com/shuhart/MoneyEditText/'
+    }
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.1"
@@ -27,6 +33,7 @@ dependencies {
     })
     compile 'com.android.support:appcompat-v7:26.0.1'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
-    compile project(':moneyedittext')
+//    compile project(':moneyedittext-kotlin')
+    compile 'com.shuhart.moneyedittext:moneyedittext-kotlin:1.0'
     testCompile 'junit:junit:4.12'
 }
