@@ -9,7 +9,7 @@ repositories {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.1"
+    buildToolsVersion "26.0.2"
     defaultConfig {
         applicationId "com.shuhart.moneyedittext"
         minSdkVersion 14
@@ -31,7 +31,7 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.0.1'
+    compile 'com.android.support:appcompat-v7:26.1.0'
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 //    compile project(':moneyedittext-kotlin')
     compile 'com.shuhart.moneyedittext:moneyedittext-kotlin:1.0'
